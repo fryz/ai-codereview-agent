@@ -45,10 +45,13 @@ export class GithubPRClient implements PRClient<GithubPRLocator> {
       pull_number: prNumber
     })
 
-    console.log(response.data)
+    console.debug('Head', response.data.head)
+    console.debug('Base', response.data.base)
 
     const headSha = response.data.head.sha
     const baseSha = response.data.base.sha
+
+    console.debug(headSha, baseSha)
 
     const diff = await this.octokit.rest.repos.compareCommits({
       headers: {
@@ -59,6 +62,8 @@ export class GithubPRClient implements PRClient<GithubPRLocator> {
       base: baseSha,
       head: headSha
     })
+
+    console.debug(diff.data)
 
     return String(diff.data)
   }
