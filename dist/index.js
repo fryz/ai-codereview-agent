@@ -34909,6 +34909,7 @@ class GithubPRClient {
             repo,
             pull_number: prNumber
         });
+        console.debug('Response', response.data);
         console.debug('Head', response.data.head);
         console.debug('Base', response.data.base);
         const headSha = response.data.head.sha;
