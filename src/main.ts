@@ -33,6 +33,7 @@ export async function run(): Promise<void> {
     }
 
     const prDetails = await githubClient.getPRDetails(prLocator)
+    console.debug('PR Details', prDetails)
 
     console.log('Get PR diff')
     const diff = await githubClient.getDiff(prLocator)
@@ -40,7 +41,11 @@ export async function run(): Promise<void> {
       console.log('No diff found for PR')
       return
     }
+
+    console.debug('Diff', diff)
+
     const parsedDiff = parseDiff(diff)
+    console.debug('Parsed Diff', parsedDiff)
 
     console.log('Filter diff and remove excluded files')
     const excludedFiles = [

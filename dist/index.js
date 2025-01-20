@@ -46087,13 +46087,16 @@ async function run() {
             prNumber: prNumber
         };
         const prDetails = await githubClient.getPRDetails(prLocator);
+        console.debug('PR Details', prDetails);
         console.log('Get PR diff');
         const diff = await githubClient.getDiff(prLocator);
         if (!diff) {
             console.log('No diff found for PR');
             return;
         }
+        console.debug('Diff', diff);
         const parsedDiff = parseDiff(diff);
+        console.debug('Parsed Diff', parsedDiff);
         console.log('Filter diff and remove excluded files');
         const excludedFiles = [
             'package.lock',
