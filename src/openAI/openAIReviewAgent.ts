@@ -87,7 +87,7 @@ class OpenAIReviewAgent implements ReviewAgent {
       return reviews
     } catch (error) {
       console.error('Error while reviewing code for file:', file.to, error)
-      throw error
+      return []
     }
   }
 }

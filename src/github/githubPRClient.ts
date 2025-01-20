@@ -6,7 +6,7 @@ import {
 } from '../interfaces/prClient.interface.js'
 import { AIReviewComment } from '../interfaces/reviewAgent.interface.js'
 
-interface GithubPRLocator extends PRLocator {
+export interface GithubPRLocator extends PRLocator {
   owner: string
   repo: string
   prNumber: number
