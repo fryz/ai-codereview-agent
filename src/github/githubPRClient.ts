@@ -45,6 +45,8 @@ export class GithubPRClient implements PRClient<GithubPRLocator> {
       pull_number: prNumber
     })
 
+    console.log(response.data)
+
     const headSha = response.data.head.sha
     const baseSha = response.data.base.sha
 

@@ -34909,6 +34909,7 @@ class GithubPRClient {
             repo,
             pull_number: prNumber
         });
+        console.log(response.data);
         const headSha = response.data.head.sha;
         const baseSha = response.data.base.sha;
         const diff = await this.octokit.rest.repos.compareCommits({
